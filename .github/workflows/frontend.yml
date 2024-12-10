@@ -9,7 +9,8 @@ jobs:
   #   steps:
   #     - name: Checkout
   #       uses: actions/checkout@v4
-  #       ref: 'frontend_dev'
+  #       with:
+  #         ref: 'frontend_dev'
       
   #     - name: Install dependences
   #       run: npm i
@@ -21,7 +22,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@4
+        uses: actions/checkout@v4
         with:
           ref: frontend_dev
         
