@@ -4,7 +4,7 @@ on:
   pull_request:
     branches:
       - dev
-  workflow_dispatch: # Добавлено для ручного запуска
+  workflow_dispatch: # Для ручного запуска
 
 jobs:
   sync-backend:
@@ -12,7 +12,7 @@ jobs:
 
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v4
+      uses: actions/checkout@v3
 
     - name: Set up Git
       run: |
@@ -24,11 +24,17 @@ jobs:
         git fetch origin frontend_dev
         git checkout frontend_dev
 
-    - name: Copy backend folder to frontend_dev
+    - name: Clean up existing backend folder
+      run: |
+        if [ -d "backend" ]; then
+          rm -rf backend
+        fi
+
+    - name: Copy backend folder from dev branch
       run: |
         git checkout ${{ github.event.pull_request.head.ref }} -- backend
-        rsync -a backend/ . # Используем rsync для безопасного копирования содержимого
-        rm -rf backend # Удаляем папку backend, если она уже была скопирована
+        rsync -a backend/ .
+        rm -rf backend # Удаляем папку backend после копирования
 
     - name: Check for changes
       id: changes-check
