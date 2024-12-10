@@ -17,6 +17,9 @@ jobs:
         ref: frontend_dev
         fetch-depth: 0
 
+    - name: Fetch all branches
+      run: git fetch --all
+
     - name: Set up Git
       run: |
         git config user.name "github-actions[bot]"
