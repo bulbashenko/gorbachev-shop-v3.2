@@ -36,7 +36,7 @@ jobs:
         mkdir -p temp_backend
         mv backend/* temp_backend/
         rm -rf backend
-        mv temp_backend/* backend/
+        mv temp_backend/ backend/
         rm -rf temp_backend
 
     - name: Check for changes
