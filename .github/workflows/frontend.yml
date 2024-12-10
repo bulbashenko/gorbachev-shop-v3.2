@@ -14,8 +14,10 @@ jobs:
 
       - name: Check for changes in backend
         run: |
-          if git diff --name-only origin/frontend_dev | grep '^backend/'; then
-            echo "Changes detected in the backend folder. Failing the check."
+          BACKEND_CHANGES=$(git diff --name-only HEAD~1 HEAD | grep '^backend/' || true)
+          if [ -n "$BACKEND_CHANGES" ]; then
+            echo "The following changes were detected in the backend folder:"
+            echo "$BACKEND_CHANGES"
             exit 1
           else
             echo "No changes in the backend folder."
