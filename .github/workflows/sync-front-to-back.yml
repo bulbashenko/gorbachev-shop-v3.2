@@ -1,0 +1,56 @@
+name: Sync Frontend to Backend Dev
+
+on:
+  push:
+    workflow_run:
+      workflows: ["Backend CI/CD"]
+      types:
+        - completed
+        
+  workflow_dispatch:
+
+jobs:
+  sync-frontend:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Шаг 1: Checkout ветки dev
+      - name: Checkout dev branch
+        uses: actions/checkout@v3
+        with:
+          ref: dev
+          fetch-depth: 0  # Необходим для полноценной работы с git
+
+      # Шаг 2: Копирование папки frontend
+      - name: Copy frontend folder
+        run: |
+          mkdir -p ../frontend_backup
+          cp -r frontend ../frontend_backup/
+
+      # Шаг 3: Checkout ветки backend_dev
+      - name: Checkout backend_dev branch
+        uses: actions/checkout@v3
+        with:
+          ref: backend_dev
+          fetch-depth: 0
+
+      # Шаг 4: Обновление папки frontend
+      - name: Update frontend folder in backend_dev
+        run: |
+          rm -rf frontend
+          cp -r ../frontend_backup/frontend ./frontend
+
+      # Шаг 5: Коммит изменений
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add frontend
+          git commit -m "Sync frontend folder from dev branch" || echo "No changes to commit"
+
+      # Шаг 6: Пуш изменений
+      - name: Push changes
+        uses: ad-m/github-push-action@v0.6.0
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: backend_dev
