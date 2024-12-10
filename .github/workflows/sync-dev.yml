@@ -12,7 +12,7 @@ jobs:
 
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
 
     - name: Set up Git
       run: |
@@ -33,8 +33,11 @@ jobs:
     - name: Copy backend folder from dev branch
       run: |
         git checkout ${{ github.event.pull_request.head.ref }} -- backend
-        rsync -a backend/ .
-        rm -rf backend # Удаляем папку backend после копирования
+        mkdir -p temp_backend
+        mv backend/* temp_backend/
+        rm -rf backend
+        mv temp_backend/* .
+        rm -rf temp_backend
 
     - name: Check for changes
       id: changes-check
