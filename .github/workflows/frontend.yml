@@ -20,14 +20,18 @@ jobs:
   merge:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout
+        uses: actions/checkout@4
+        ref: 'frontend_dev'
+        
       - name: Ensure no changes in backend directory
         run: |
-          CHANGED_FILES=$(git diff --name-only origin/dev..HEAD)
+          CHANGED_FILES=$(git diff --name-only origin/dev...HEAD)
           if echo "$CHANGED_FILES" | grep "^backend/"; then
             echo "Error: Changes in 'backend' folder are not allowed in 'frontend_dev'."
             exit 1
           fi
-          
+
       - name: Create PR to dev
         uses: peter-evans/create-pull-request@v7
         with:
