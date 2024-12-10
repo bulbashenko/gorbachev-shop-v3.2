@@ -28,7 +28,7 @@ jobs:
         
       - name: Ensure no changes in backend directory
         run: |
-          if git diff --name-only ${{ github.event.before }} ${{ github.sha }} | grep '^backend/*'; then
+          if git diff --name-only | grep '^backend/*'; then
             echo "backend_modified=true" >> $GITHUB_ENV
           else
             echo "backend_modified=false" >> $GITHUB_ENV
