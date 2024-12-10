@@ -1,0 +1,39 @@
+name: Frontend CI/CD
+on:
+  push: 
+    branches: [frontend_dev]
+
+jobs:
+  # lint:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Checkout
+  #       uses: actions/checkout@4
+  #       ref: 'frontend_dev'
+      
+  #     - name: Install dependences
+  #       run: npm i
+
+  #     - name: Lint
+  #       run: npm run lint
+
+  merge:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ensure no changes in backend directory
+        run: |
+          CHANGED_FILES=$(git diff --name-only origin/dev..HEAD)
+          if echo "$CHANGED_FILES" | grep "^backend/"; then
+            echo "Error: Changes in 'backend' folder are not allowed in 'frontend_dev'."
+            exit 1
+          fi
+          
+      - name: Create PR to dev
+        uses: peter-evans/create-pull-request@v7
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          base: dev
+          branch: frontend_dev
+          commit-message: Auto Pull Request
+          title: "Sync frontend_dev into dev"
+          body: "This PR was created automatically by GitHub Actions."
