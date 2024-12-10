@@ -1,12 +1,11 @@
 name: Sync Frontend to Backend Dev
 
 on:
-  push:
-    workflow_run:
-      workflows: ["Backend CI/CD"]
-      types:
-        - completed
-        
+  workflow_run:
+    workflows: ["Backend CI/CD"]
+    types:
+      - completed
+      
   workflow_dispatch:
 
 jobs:
