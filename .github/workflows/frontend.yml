@@ -18,6 +18,7 @@ jobs:
           CHANGED_FILES=$(git diff --name-only origin/dev...HEAD)
           if echo "$CHANGED_FILES" | grep "^backend/"; then
             echo "Error: Changes in 'backend' folder are not allowed in 'frontend_dev'."
+            exit 1
           else
             echo "No changes in the backend folder."
           fi
