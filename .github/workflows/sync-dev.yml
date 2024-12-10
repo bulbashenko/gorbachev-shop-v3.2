@@ -1,0 +1,49 @@
+name: Push Backend to Frontend Dev
+
+on:
+  pull_request:
+    branches:
+      - dev
+  workflow_dispatch:
+
+jobs:
+  sync-backend:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Set up Git
+      run: |
+        git config user.name "github-actions[bot]"
+        git config user.email "github-actions[bot]@users.noreply.github.com"
+
+    - name: Pull frontend_dev branch
+      run: |
+        git fetch origin frontend_dev
+        git checkout frontend_dev
+
+    - name: Copy backend folder to frontend_dev
+      run: |
+        git checkout ${{ github.event.pull_request.head.ref }} -- backend
+        cp -R backend/* .
+        rm -rf backend
+
+    - name: Check for changes
+      id: changes-check
+      run: |
+        if [ -z "$(git status --porcelain)" ]; then
+          echo "No changes detected."
+          echo "changes=false" >> $GITHUB_OUTPUT
+        else
+          echo "Changes detected."
+          echo "changes=true" >> $GITHUB_OUTPUT
+        fi
+
+    - name: Commit and push changes
+      if: steps.changes-check.outputs.changes == 'true'
+      run: |
+        git add .
+        git commit -m "Sync backend folder from dev PR #${{ github.event.pull_request.number }}"
+        git push origin frontend_dev
