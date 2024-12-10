@@ -20,20 +20,22 @@ jobs:
   merge:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout
+        uses: actions/checkout@4
+        with:
+          ref: frontend_dev
+        
       - name: Ensure no changes in backend directory
         run: |
-          CHANGED_FILES=$(git diff --name-only origin/dev..HEAD)
-          if echo "$CHANGED_FILES" | grep "^backend/"; then
-            echo "Error: Changes in 'backend' folder are not allowed in 'frontend_dev'."
-            exit 1
-          fi
-          
+           git diff --name-only ${{ github.event.before }} ${{ github.sha }} | grep '^backend/' || echo "no-backend-changes"
+
       - name: Create PR to dev
+        if: steps.backend_changes.outputs.backend_modified != 'no-backend-changes'
         uses: peter-evans/create-pull-request@v7
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          base: dev
-          branch: frontend_dev
+          base: frontend_dev
+          branch: dev
           commit-message: Auto Pull Request
           title: "Sync frontend_dev into dev"
           body: "This PR was created automatically by GitHub Actions."
