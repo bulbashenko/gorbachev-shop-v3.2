@@ -13,16 +13,13 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
+      with:
+        ref: frontend_dev
 
     - name: Set up Git
       run: |
         git config user.name "github-actions[bot]"
         git config user.email "github-actions[bot]@users.noreply.github.com"
-
-    - name: Pull frontend_dev branch
-      run: |
-        git fetch origin frontend_dev
-        git checkout frontend_dev
 
     - name: Clean up existing backend folder
       run: |
@@ -32,12 +29,7 @@ jobs:
 
     - name: Copy backend folder from dev branch
       run: |
-        git checkout ${{ github.event.pull_request.head.ref }} -- backend
-        mkdir -p temp_backend
-        mv backend/* temp_backend/
-        rm -rf backend
-        mv temp_backend/ backend/
-        rm -rf temp_backend
+        git checkout dev -- backend
 
     - name: Check for changes
       id: changes-check
