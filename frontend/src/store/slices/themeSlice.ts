@@ -1,25 +1,33 @@
+// src/store/themeSlice.ts
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import Cookies from 'js-cookie';
 
-type ThemeState = {
-  currentTheme: string;
-};
+export type Theme = 'light' | 'dark';
+
+interface ThemeState {
+  theme: Theme;
+}
 
 const initialState: ThemeState = {
-  currentTheme: Cookies.get('theme') || 'dark', // Берем тему из куки или ставим "dark" по умолчанию
+  theme: 'dark',
 };
 
 const themeSlice = createSlice({
   name: 'theme',
   initialState,
   reducers: {
-    setTheme: (state, action: PayloadAction<string>) => {
-      state.currentTheme = action.payload;
-      Cookies.set('theme', action.payload); // Сохраняем тему в куки
+    setTheme(state, action: PayloadAction<Theme>) {
+      state.theme = action.payload;
+      // Запись в cookie при каждом изменении
+      Cookies.set('theme', action.payload, { expires: 365 });
+    },
+    toggleTheme(state) {
+      const newTheme = state.theme === 'light' ? 'dark' : 'light';
+      state.theme = newTheme;
+      Cookies.set('theme', newTheme, { expires: 365 });
     },
   },
 });
 
-export const { setTheme } = themeSlice.actions;
-
+export const { setTheme, toggleTheme } = themeSlice.actions;
 export default themeSlice.reducer;

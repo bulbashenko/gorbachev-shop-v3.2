@@ -10,7 +10,7 @@ const store = configureStore({
     language: languageReducer,
     cart: cartReducer,
     currency: currencyReducer,
-    theme: themeReducer
+    theme: themeReducer,
   },
 });
 
