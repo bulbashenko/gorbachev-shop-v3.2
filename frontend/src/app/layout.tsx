@@ -4,9 +4,9 @@ import "./globals.css";
 import { ReactNode } from "react";
 import { cookies } from "next/headers";
 
-import Providers from "./providers/LanguageProvider";
-import { ThemeProvider } from "./providers/ThemeProvider";
-import FontProvider from "./providers/FontProvider";
+import Providers from "../providers/LanguageProvider";
+import { ThemeProvider } from "../providers/ThemeProvider";
+import FontProvider from "../providers/FontProvider";
 
 import Header from "./components/Header";
 import MobileNavigationMenu from "./components/MobileNavigationMenu";
