@@ -1,12 +1,12 @@
 // components/SettingsMenu.tsx
 "use client";
 import React, { useRef, useEffect } from 'react';
-import ThemeSwitcher from './ThemeSwitcher';
-import LanguageMenu from './LanguageMenu';
-import CurrencyMenu from './CurrencyMenu';
+import ThemeSwitcher from '../ThemeSwitcher';
+import LanguageMenu from '../LanguageMenu';
+import CurrencyMenu from '../CurrencyMenu';
 import Link from 'next/link';
 import { AiOutlineClose } from 'react-icons/ai'; // Импортируем иконку
-import { dm_mono } from '../utils/fontConfig';
+import { dm_mono } from '../../utils/fontConfig';
 
 interface SettingsMenuProps {
   onClose: () => void;
@@ -66,7 +66,7 @@ const SettingsMenu: React.FC<SettingsMenuProps> = ({ onClose }) => {
 
           {/* Ссылка на аккаунт */}
           <div>
-            <Link href="/account" className="text-primary underline">
+            <Link href="/auth" className="text-primary underline">
               Go to Account
             </Link>
           </div>

@@ -1,7 +1,7 @@
 // NavigationMenu.tsx
 "use client"
 import Link from 'next/link';
-import navigationLinks from '../utils/navigationLinks';
+import navigationLinks from '../../utils/navigationLinks';
 import { useTranslations } from 'next-intl';
 
 export default function MobileNavigationMenu() {

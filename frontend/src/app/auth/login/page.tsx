@@ -15,7 +15,7 @@ export default function LoginPage() {
       <div className="min-h-screen flex flex-col items-center">
         <div className="grid grid-cols-1 md:grid-cols-7 gap-[30px]">
           {/* Блок 1: LOG IN */}
-          <div className="col-span-1 md:col-span-3 flex flex-col items-center md:items-start text-center md:text-left">
+          <div className="col-span-1 md:col-span-3 flex flex-col items-center md:items-start text-center md:text-left mb-16">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8">{t('auth.logIn')}</h1>
             <form className="w-full grid grid-cols-1 md:grid-cols-7 gap-6">
               <input
