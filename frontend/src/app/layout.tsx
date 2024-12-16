@@ -12,6 +12,7 @@ import Header from "./components/Header";
 import MobileNavigationMenu from "./components/MobileNavigationMenu";
 import BottomNav from "./components/BottomNav";
 import { dm_sans, pt_sans } from "./utils/fontConfig";
+import Footer from "./components/Footer";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -51,6 +52,7 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
               <MobileNavigationMenu />
               {children}
               <BottomNav />
+              <Footer />
             </FontProvider>
           </Providers>
         </ThemeProvider>
