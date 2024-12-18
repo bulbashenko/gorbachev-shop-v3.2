@@ -6,7 +6,7 @@ import { useTranslations } from 'next-intl';
 
 export default function AuthPage() {
   const router = useRouter();
-  const t = useTranslations();
+  const t = useTranslations("auth");
 
   useEffect(() => {
     // Перенаправление на страницу /auth/login

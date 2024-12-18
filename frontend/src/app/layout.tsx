@@ -9,10 +9,11 @@ import { ThemeProvider } from "../providers/ThemeProvider";
 import FontProvider from "../providers/FontProvider";
 
 import Header from "./components/UI/Header";
+import Footer from "./components/UI/Footer";
 import MobileNavigationMenu from "./components/MobileUI/MobileNavigationMenu";
 import BottomNav from "./components/MobileUI/BottomNav";
 import { dm_sans, pt_sans } from "./utils/fontConfig";
-import Footer from "./components/UI/Footer";
+
 
 export const metadata: Metadata = {
   title: "Create Next App",

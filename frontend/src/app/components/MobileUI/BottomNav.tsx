@@ -1,11 +1,12 @@
-// components/BottomNav.tsx
 "use client";
-import React, { useState } from 'react';
-import Link from 'next/link';
-import { FiBook, FiHeart, FiShoppingCart, FiSettings } from 'react-icons/fi';
-import SettingsMenu from './SettingsMenu';
 
-type MenuItem = 'catalog' | 'wishlist' | 'cart' | 'settings';
+import React, { useState } from "react";
+import Link from "next/link";
+import { FiBook, FiHeart, FiShoppingCart, FiSettings } from "react-icons/fi";
+import SettingsMenu from "./SettingsMenu";
+import { useTranslations } from "next-intl";
+
+type MenuItem = "catalog" | "wishlist" | "cart" | "settings";
 
 interface MenuItemType {
   key: MenuItem;
@@ -14,34 +15,35 @@ interface MenuItemType {
   href?: string; // Сделаем href опциональным, т.к. для settings не будет href
 }
 
-const menuItems: MenuItemType[] = [
-  {
-    key: 'catalog',
-    label: 'Catalog',
-    icon: <FiBook size={28} />,
-    href: '/catalog',
-  },
-  {
-    key: 'wishlist',
-    label: 'Wishlist',
-    icon: <FiHeart size={28} />,
-    href: '/wishlist',
-  },
-  {
-    key: 'cart',
-    label: 'Cart',
-    icon: <FiShoppingCart size={28} />,
-    href: '/cart',
-  },
-  {
-    key: 'settings',
-    label: 'Settings',
-    icon: <FiSettings size={28} />,
-    // href: '/settings', // Убираем href, будем использовать onClick
-  },
-];
-
 const BottomNav: React.FC = () => {
+  const t = useTranslations("bottomNav");
+
+  const menuItems: MenuItemType[] = [
+    {
+      key: "catalog",
+      label: t("catalog"),
+      icon: <FiBook size={28} />,
+      href: "/catalog",
+    },
+    {
+      key: "wishlist",
+      label: t("wishlist"),
+      icon: <FiHeart size={28} />,
+      href: "/wishlist",
+    },
+    {
+      key: "cart",
+      label: t("cart"),
+      icon: <FiShoppingCart size={28} />,
+      href: "/cart",
+    },
+    {
+      key: "settings",
+      label: t("settings"),
+      icon: <FiSettings size={28} />,
+    },
+  ];
+
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
 
   const handleSettingsClick = () => {
@@ -58,7 +60,7 @@ const BottomNav: React.FC = () => {
         "
       >
         {menuItems.map((item) => {
-          if (item.key === 'settings') {
+          if (item.key === "settings") {
             return (
               <button
                 key={item.key}
@@ -87,9 +89,7 @@ const BottomNav: React.FC = () => {
         })}
       </nav>
 
-      {isSettingsOpen && (
-        <SettingsMenu onClose={() => setIsSettingsOpen(false)} />
-      )}
+      {isSettingsOpen && <SettingsMenu onClose={() => setIsSettingsOpen(false)} />}
     </>
   );
 };

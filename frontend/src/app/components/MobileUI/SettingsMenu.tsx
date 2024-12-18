@@ -1,18 +1,20 @@
-// components/SettingsMenu.tsx
 "use client";
-import React, { useRef, useEffect } from 'react';
-import ThemeSwitcher from '../ThemeSwitcher';
-import LanguageMenu from '../LanguageMenu';
-import CurrencyMenu from '../CurrencyMenu';
-import Link from 'next/link';
-import { AiOutlineClose } from 'react-icons/ai'; // Импортируем иконку
-import { dm_mono } from '../../utils/fontConfig';
+
+import React, { useRef, useEffect } from "react";
+import ThemeSwitcher from "../ThemeSwitcher";
+import LanguageMenu from "../LanguageMenu";
+import CurrencyMenu from "../CurrencyMenu";
+import Link from "next/link";
+import { AiOutlineClose } from "react-icons/ai";
+import { dm_mono } from "../../utils/fontConfig";
+import { useTranslations } from "next-intl";
 
 interface SettingsMenuProps {
   onClose: () => void;
 }
 
 const SettingsMenu: React.FC<SettingsMenuProps> = ({ onClose }) => {
+  const t = useTranslations("settingsMenu");
   const menuRef = useRef<HTMLDivElement>(null);
 
   // Закрываем меню при клике вне его области
@@ -23,8 +25,8 @@ const SettingsMenu: React.FC<SettingsMenuProps> = ({ onClose }) => {
       }
     };
 
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
   }, [onClose]);
 
   return (
@@ -39,35 +41,35 @@ const SettingsMenu: React.FC<SettingsMenuProps> = ({ onClose }) => {
                    flex flex-col gap-4"
       >
         <div className="flex items-center justify-between">
-          <h2 className="text-xl font-semibold">Settings</h2>
+          <h2 className="text-xl font-semibold">{t("title")}</h2>
           <button onClick={onClose}>
-            <AiOutlineClose className='w-4 h-4' /> {/* Используем иконку */}
+            <AiOutlineClose className="w-4 h-4" />
           </button>
         </div>
 
         <div className="flex flex-col gap-4">
           {/* Переключатель темы */}
           <div className="flex items-center justify-between">
-            <span>Theme:</span>
+            <span>{t("theme")}:</span>
             <ThemeSwitcher />
           </div>
 
           {/* Переключатель языка */}
           <div className="flex items-center justify-between">
-            <span>Language:</span>
+            <span>{t("language")}:</span>
             <LanguageMenu />
           </div>
 
           {/* Переключатель валюты */}
           <div className="flex items-center justify-between">
-            <span>Currency:</span>
+            <span>{t("currency")}:</span>
             <CurrencyMenu />
           </div>
 
           {/* Ссылка на аккаунт */}
           <div>
             <Link href="/auth" className="text-primary underline">
-              Go to Account
+              {t("accountLink")}
             </Link>
           </div>
 
@@ -76,11 +78,10 @@ const SettingsMenu: React.FC<SettingsMenuProps> = ({ onClose }) => {
             <input
               id="search"
               type="text"
-              placeholder="Search..."
+              placeholder={t("searchPlaceholder")}
               className={`${dm_mono.className} text-sm w-full col-span-1 md:col-span-6 px-4 py-3 border border-[#030303] dark:border-[#ededed] rounded-[6px] bg-transparent focus:outline-none focus:border-gray-300 placeholder-[#030303] dark:placeholder-[#ededed]`}
             />
           </div>
-
         </div>
       </div>
     </>

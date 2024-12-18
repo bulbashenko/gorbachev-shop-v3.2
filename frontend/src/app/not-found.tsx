@@ -4,7 +4,7 @@ import { useTranslations } from 'next-intl';
 import Link from 'next/link';
 
 export default function NotFoundPage() {
-  const t = useTranslations();
+  const t = useTranslations("notFound");
 
   return (
     <div className="min-h-screen flex justify-center py-4 px-4">

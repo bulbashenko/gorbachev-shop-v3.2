@@ -9,7 +9,8 @@
     "contact": "Contact"
   },
   "buttons": {
-    "login": "Login"
+    "login": "Login",
+    "register": "Register"
   },
   "navigation": {
     "allProducts": "All Products",
@@ -35,7 +36,14 @@
     "newCustomers": "NEW CUSTOMERS",
     "newCustomersDescription": "Sign up for early Sale access plus tailored new arrivals, trends and promotions. To opt out, click unsubscribe in our emails.",
     "register": "Register",
-    "redirecting": "Redirecting..."
+    "redirecting": "Redirecting...",
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "confirmPassword": "Confirm Password",
+    "subscribe": "I want to receive promotional offers, customized new arrivals, trends, and promotions.",
+    "agreement": "By registering, you automatically agree to the",
+    "termsOfAgreement": "terms of the agreement",
+    "privacyPolicy": "privacy policy"
   },
   "profile": {
     "accountSettings": "Account Settings",
@@ -52,5 +60,42 @@
   "additional": {
     "additionalInfo": "Additional Info",
     "termsAgreement": "terms of the agreement"
+  },
+  "bottomNav": {
+    "catalog": "Catalog",
+    "wishlist": "Wishlist",
+    "cart": "Cart",
+    "settings": "Settings"
+  },
+  "settingsMenu": {
+    "title": "Settings",
+    "theme": "Theme",
+    "language": "Language",
+    "currency": "Currency",
+    "accountLink": "Go to Account",
+    "searchPlaceholder": "Search..."
+  },
+  "notFound": {
+    "title": "Page not found",
+    "description": "We couldn't find the page you were looking for. It might have been removed or the URL is incorrect.",
+    "homeButton": "Go back to Home"
+  },
+  "footer": {
+    "usefulLinks": {
+      "title": "Useful links",
+      "paymentMethods": "Payment methods",
+      "privacyPolicy": "Privacy policy",
+      "returnPolicy": "Return policy",
+      "giftCards": "Gift cards"
+    },
+    "contact": {
+      "title": "Contact",
+      "email": "Email",
+      "phone": "Phone"
+    },
+    "followUs": {
+      "title": "Follow us"
+    },
+    "disclaimer": "gorbachev.shop | Chief Galactic Officer Gorbachev. Company UNP: 123456789, registered on the moon. Date of registration certificate issuance: 01.01.2020 by the Lunar Executive Committee. Registered in the Interstellar Trade Register under number: 987654321 in New Moscow. Registration date: 12.12.2024. Online store operating hours: 24/7. Support available daily from 00:00 to 24:00. Address: Milky Way Galaxy, Sector 7G, Luna Base, Astro Street, 42."
   }
 }
