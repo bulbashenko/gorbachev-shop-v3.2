@@ -2,9 +2,11 @@
 
 import { useEffect } from 'react';
 import { useRouter } from 'next/navigation';
+import { useTranslations } from 'next-intl';
 
 export default function AuthPage() {
   const router = useRouter();
+  const t = useTranslations("auth");
 
   useEffect(() => {
     // Перенаправление на страницу /auth/login
@@ -16,7 +18,7 @@ export default function AuthPage() {
     <div className="min-h-screen flex items-center justify-center">
       <div className="text-white text-center">
         <div className="w-8 h-8 border-t-2 border-white rounded-full animate-spin mx-auto mb-4"></div>
-        <p>Redirecting...</p>
+        <p>{t('redirecting')}</p>
       </div>
     </div>
   );

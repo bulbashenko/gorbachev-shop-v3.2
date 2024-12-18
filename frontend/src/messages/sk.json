@@ -4,20 +4,100 @@
     "theme": "Tmavá téma",
     "logoAlt": "Logo",
     "nav": {
-        "home": "Domov",
-        "about": "O nás",
-        "contact": "Kontakt"
+      "home": "Domov",
+      "about": "O nás",
+      "contact": "Kontakt"
     },
     "buttons": {
-        "login": "Prihlásiť sa"
+      "login": "Prihlásiť sa",
+      "register": "Registrácia"
     },
     "navigation": {
-        "allProducts": "Všetky produkty",
-        "sweaters": "Svetre",
-        "pants": "Nohavice",
-        "bags": "Tašky",
-        "tshirts": "Tričká",
-        "accessories": "Doplnky",
-        "information": "O spoločnosti"
+      "allProducts": "Všetky produkty",
+      "mobAllProducts": "VŠETKY",
+      "sweaters": "Svetre",
+      "mobSweaters": "SVETRE",
+      "pants": "Nohavice",
+      "mobPants": "NOHAVICE",
+      "bags": "Tašky",
+      "mobBags": "TAŠKY",
+      "tshirts": "Tričká",
+      "mobTshirts": "TRIČKÁ",
+      "accessories": "Doplnky",
+      "mobAccessories": "DOPLNKY",
+      "information": "O nás"
+    },
+    "auth": {
+      "logIn": "PRIHLÁSIŤ SA",
+      "email": "E-mail",
+      "password": "Heslo",
+      "forgotPassword": "Zabudli ste heslo?",
+      "signIn": "Prihlásiť sa",
+      "newCustomers": "NOVÍ ZÁKAZNÍCI",
+      "newCustomersDescription": "Zaregistrujte sa a získajte skorý prístup k výpredajom, personalizované novinky, trendy a akcie. Ak sa chcete odhlásiť, kliknite na 'Odhlásiť sa' v našich e-mailoch.",
+      "register": "Registrovať",
+      "redirecting": "Presmerovanie...",
+      "firstName": "Meno",
+      "lastName": "Priezvisko",
+      "confirmPassword": "Potvrďte heslo",
+      "subscribe": "Chcem dostávať propagačné ponuky, personalizované novinky, trendy a akcie.",
+      "agreement": "Registráciou automaticky súhlasíte s",
+      "termsOfAgreement": "podmienkami dohody",
+      "privacyPolicy": "zásadami ochrany osobných údajov"
+    },
+    "profile": {
+      "accountSettings": "Nastavenia účtu",
+      "personalInfo": "Osobné údaje",
+      "firstName": "Meno",
+      "lastName": "Priezvisko",
+      "email": "E-mail",
+      "phone": "Telefón"
+    },
+    "orders": {
+      "myOrders": "Moje objednávky",
+      "noOrders": "Zatiaľ nemáte žiadne objednávky"
+    },
+    "additional": {
+      "additionalInfo": "Ďalšie informácie",
+      "termsAgreement": "podmienkami dohody"
+    },
+    "bottomNav": {
+      "catalog": "Katalóg",
+      "wishlist": "Obľúbené",
+      "cart": "Košík",
+      "settings": "Nastavenia"
+    },
+    "settingsMenu": {
+      "title": "Nastavenia",
+      "theme": "Téma",
+      "language": "Jazyk",
+      "currency": "Mena",
+      "accountLink": "Prejsť na účet",
+      "searchPlaceholder": "Vyhľadávanie..."
+    },
+    "notFound": {
+        "title": "Stránka nenájdená",
+        "description": "Nepodarilo sa nám nájsť stránku, ktorú hľadáte. Môže byť odstránená alebo URL adresa je nesprávna.",
+        "homeButton": "Vrátiť sa na domovskú stránku"
+    },
+    "footer": {
+        "usefulLinks": {
+            "title": "Užitočné odkazy",
+            "paymentMethods": "Spôsoby platby",
+            "privacyPolicy": "Zásady ochrany osobných údajov",
+            "returnPolicy": "Podmienky vrátenia tovaru",
+            "giftCards": "Darčekové poukazy"
+        },
+        "contact": {
+            "title": "Kontakt",
+            "email": "Email",
+            "phone": "Telefón"
+        },
+        "followUs": {
+            "title": "Sledujte nás"
+        },
+        "disclaimer": "gorbachev.shop | Hlavný galaktický dôstojník Gorbachev. IČO spoločnosti: 123456789, registrované na Mesiaci. Dátum vydania osvedčenia o registrácii: 01.01.2020 Lúčnym výkonným výborom. Registrované v Medzihviezdnom obchodnom registri pod číslom: 987654321 v Novom Moskve. Dátum registrácie: 12.12.2024. Prevádzkové hodiny internetového obchodu: 24/7. Podpora dostupná denne od 00:00 do 24:00. Adresa: Galaxia Mliečna dráha, Sektor 7G, Mesačná základňa, Astro ulica, 42."
     }
+
 }
+  

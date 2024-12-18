@@ -2,12 +2,12 @@
 
 import { useTranslations } from 'next-intl';
 import Link from 'next/link';
-import navigationLinks from '../utils/navigationLinks';
+import navigationLinks from '../../utils/navigationLinks';
 import { FiUser, FiHeart, FiShoppingCart, FiSearch } from 'react-icons/fi';
-import LanguageMenu from './LanguageMenu';
-import CurrencyMenu from './CurrencyMenu';
-import ThemeSwitcher from './ThemeSwitcher';
-import { dm_sans } from '../utils/fontConfig';
+import LanguageMenu from '../LanguageMenu';
+import CurrencyMenu from '../CurrencyMenu';
+import ThemeSwitcher from '../ThemeSwitcher';
+import { dm_sans } from '../../utils/fontConfig';
 
 export default function Header() {
   const t = useTranslations();

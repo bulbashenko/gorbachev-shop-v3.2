@@ -37,7 +37,7 @@ const LanguageProvider: React.FC<LanguageProviderProps> = ({ children, initialLo
 
   useEffect(() => {
     if (localeFromRedux !== locale) {
-      import(`../../messages/${localeFromRedux}.json`)
+      import(`../messages/${localeFromRedux}.json`)
         .then((msgs) => {
           setLocale(localeFromRedux);
           setMessages(msgs.default);

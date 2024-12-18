@@ -1,79 +1,83 @@
-'use client';
-
+"use client"
+import { useTranslations } from "next-intl";
 import { useLocale } from "next-intl";
 import { dm_mono, pt_mono } from '../../utils/fontConfig';
-import Button from '../../components/Button';
+import Link from "next/link";
+import { FaRegSquareCheck, FaRegSquare } from "react-icons/fa6";
+import { useState } from "react";
 
 export default function RegisterPage() {
+  const t = useTranslations("auth");
   const locale = useLocale();
   const monoFont = locale === 'ru' || locale === 'en' ? pt_mono : dm_mono;
+
+  const [isSubscribed, setIsSubscribed] = useState(false);
 
   return (
     <div className="container mx-auto py-8 px-4">
       <div className="min-h-screen flex flex-col items-center">
-        <div className="grid grid-cols-1 md:grid-cols-7 gap-[30px]">
-          {/* Блок 1: REGISTER */}
-          <div className="col-span-1 md:col-span-3 flex flex-col items-center md:items-start text-center md:text-left">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8">REGISTER</h1>
-            <form className="w-full grid grid-cols-1 md:grid-cols-7 gap-6">
+        <div className="w-full max-w-md">
+          <div className="flex flex-col items-center">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8">{t("register")}</h1>
+            <form className="w-full grid grid-cols-1 gap-6">
               <input
                 type="text"
-                placeholder="Username*"
-                className={`${monoFont.className} col-span-1 md:col-span-6 px-4 py-3 border border-[#030303] dark:border-[#ededed] rounded-[6px] bg-transparent focus:outline-none placeholder-[#030303] dark:placeholder-[#ededed]`}
+                placeholder={t("firstName")}
+                className={`${monoFont.className} w-full px-4 py-3 border border-[#030303] dark:border-[#ededed] rounded-[6px] bg-transparent focus:outline-none placeholder-[#030303] dark:placeholder-[#ededed]`}
+              />
+              <input
+                type="text"
+                placeholder={t("lastName")}
+                className={`${monoFont.className} w-full px-4 py-3 border border-[#030303] dark:border-[#ededed] rounded-[6px] bg-transparent focus:outline-none placeholder-[#030303] dark:placeholder-[#ededed]`}
               />
               <input
                 type="email"
-                placeholder="Email*"
-                className={`${monoFont.className} col-span-1 md:col-span-6 px-4 py-3 border border-[#030303] dark:border-[#ededed] rounded-[6px] bg-transparent focus:outline-none placeholder-[#030303] dark:placeholder-[#ededed]`}
+                placeholder={t("email")}
+                className={`${monoFont.className} w-full px-4 py-3 border border-[#030303] dark:border-[#ededed] rounded-[6px] bg-transparent focus:outline-none placeholder-[#030303] dark:placeholder-[#ededed]`}
               />
               <input
                 type="password"
-                placeholder="Password*"
-                className={`${monoFont.className} col-span-1 md:col-span-6 px-4 py-3 border border-[#030303] dark:border-[#ededed] rounded-[6px] bg-transparent focus:outline-none placeholder-[#030303] dark:placeholder-[#ededed]`}
+                placeholder={t("password")}
+                className={`${monoFont.className} w-full px-4 py-3 border border-[#030303] dark:border-[#ededed] rounded-[6px] bg-transparent focus:outline-none placeholder-[#030303] dark:placeholder-[#ededed]`}
               />
               <input
                 type="password"
-                placeholder="Confirm Password*"
-                className={`${monoFont.className} col-span-1 md:col-span-6 px-4 py-3 border border-[#030303] dark:border-[#ededed] rounded-[6px] bg-transparent focus:outline-none placeholder-[#030303] dark:placeholder-[#ededed]`}
+                placeholder={t("confirmPassword")}
+                className={`${monoFont.className} w-full px-4 py-3 border border-[#030303] dark:border-[#ededed] rounded-[6px] bg-transparent focus:outline-none placeholder-[#030303] dark:placeholder-[#ededed]`}
               />
-              <div className="col-span-1 md:col-span-6 flex flex-col items-center md:items-start gap-4">
-                <Button>Register</Button>
-                <div className={`${monoFont.className} text-base md:text-md text-whitesmoke`}>
-                  * Must be filled in
+              <div className="flex items-start gap-2">
+                <div
+                  className="cursor-pointer text-2xl"
+                  onClick={() => setIsSubscribed(!isSubscribed)}
+                >
+                  {isSubscribed ? <FaRegSquareCheck className="w-5 h-5"/> : <FaRegSquare className="w-5 h-5" />}
                 </div>
+                <div className={`${monoFont.className} text-sm`}>
+                  {t("subscribe")}
+                </div>
+              </div>
+              <div className="flex items-start gap-2">
+                <div className="w-9 h-9"></div>
+                <div className={`${monoFont.className} text-sm`}>
+                  {t("agreement")} <span className="underline">{t("termsOfAgreement")}</span> {t("privacyPolicy")}.
+                </div>
+              </div>
+              <div className="flex flex-col items-center gap-4 mt-6">
+                <button
+                  type="submit"
+                  className={`w-full px-6 py-3 bg-foreground text-background rounded-[6px] focus:outline-none`}
+                >
+                  {t("register")}
+                </button>
+                <Link
+                  type="button"
+                  href="/auth/login"
+                  className={`text-center w-full px-6 py-3 border border-foreground text-foreground bg-transparent rounded-[6px] focus:outline-none`}
+                >
+                  {t("logIn")}
+                </Link>
               </div>
             </form>
-          </div>
-
-          {/* Блок 2: ADDITIONAL INFO */}
-          <div className="col-span-1 md:col-span-4 flex flex-col items-center md:items-start text-center md:text-left">
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">ADDITIONAL INFO</h2>
-            <div className="w-full grid grid-cols-1 md:grid-cols-7 gap-6 mb-6">
-              <input
-                type="text"
-                placeholder="First Name"
-                className={`${monoFont.className} col-span-1 md:col-span-6 px-4 py-3 border border-[#030303] dark:border-[#ededed] rounded-[6px] bg-transparent focus:outline-none placeholder-[#030303] dark:placeholder-[#ededed]`}
-              />
-              <input
-                type="text"
-                placeholder="Last Name"
-                className={`${monoFont.className} col-span-1 md:col-span-6 px-4 py-3 border border-[#030303] dark:border-[#ededed] rounded-[6px] bg-transparent focus:outline-none placeholder-[#030303] dark:placeholder-[#ededed]`}
-              />
-            </div>
-            <div className="flex flex-col items-start gap-4 mb-6">
-              <div className="flex flex-row items-center gap-2">
-                <input type="checkbox" className="w-5 h-5" />
-                <div className={`${monoFont.className} text-base md:text-md font-light`}>
-                  I have read the <span className="underline">terms of the agreement</span> and agree to them
-                </div>
-              </div>
-              <div className="flex flex-row items-center gap-2">
-                <input type="checkbox" className="w-5 h-5" />
-                <div className={`${monoFont.className} text-base md:text-md font-light`}>
-                  I want to receive promotional offers, customized new arrivals, trends and promotions.
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </div>
