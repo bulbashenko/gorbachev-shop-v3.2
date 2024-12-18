@@ -6,7 +6,7 @@ import { FiSun, FiMoon } from 'react-icons/fi';
 
 const ThemeSwitcher: React.FC = () => {
   // Получаем текущую тему, системную тему и функцию смены темы из next-themes
-  const { theme, setTheme, resolvedTheme } = useTheme();
+  const { setTheme, resolvedTheme } = useTheme();
 
   // Колбэк для переключения темы
   const toggleTheme = () => {
