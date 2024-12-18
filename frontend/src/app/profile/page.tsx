@@ -1,7 +1,5 @@
 'use client';
 
-import Image from 'next/image';
-
 export default function ProfileSettings() {
   return (
     <div className="container mx-auto py-8 px-4">
@@ -11,24 +9,27 @@ export default function ProfileSettings() {
           <div className="col-span-1 md:col-span-3 flex flex-col text-center md:text-left gap-6">
             <div className="flex flex-col gap-4">
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">Account Settings</h1>
-              <button className="px-4 py-2 border border-black rounded-md hover:bg-gray-100 transition-colors text-base">
+              <button className="px-4 py-3 border border-black rounded-md">
                 Logout
               </button>
             </div>
-            <nav className="space-y-2">
-              <button className="w-full px-4 py-2 border border-black rounded-md hover:bg-gray-100 transition-colors text-base">
+            <nav className="space-y-3">
+              <button className="w-full px-4 py-3 border border-black rounded-md">
                 Personal Information
               </button>
-              <button className="w-full px-4 py-2 border border-black rounded-md hover:bg-gray-100 transition-colors text-base">
+              <button className="w-full px-4 py-3 border border-black rounded-md">
                 Addresses
               </button>
-              <button className="w-full px-4 py-2 border border-black rounded-md hover:bg-gray-100 transition-colors text-base">
+              <button className="w-full px-4 py-3 border border-black rounded-md">
                 Security
               </button>
-              <button className="w-full px-4 py-2 border border-black rounded-md hover:bg-gray-100 transition-colors text-base">
+              <button className="w-full px-4 py-3 border border-black rounded-md">
                 Preferences
               </button>
-              <a href="/profile/orders" className="w-full block px-4 py-2 border border-black rounded-md hover:bg-gray-100 transition-colors text-base text-center">
+              <a
+                href="/profile/orders"
+                className="w-full block px-4 py-3 border border-black rounded-md text-center"
+              >
                 Orders
               </a>
             </nav>
@@ -37,61 +38,50 @@ export default function ProfileSettings() {
           {/* Правая колонка (контент) */}
           <div className="col-span-1 md:col-span-4 flex flex-col gap-8">
             <div>
-              <h2 className="text-2xl font-semibold mb-6">Personal Information</h2>
-
-              {/* Аватар */}
-              <div className="flex items-center gap-4 mb-6">
-                <div className="relative w-20 h-20 rounded-full overflow-hidden bg-gray-200">
-                  <Image
-                    src="/default-avatar.png"
-                    alt="Profile"
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-                <button className="px-4 py-2 border border-black rounded hover:bg-gray-100 transition-colors text-sm font-medium">
-                  Change Photo
-                </button>
-              </div>
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">Personal Information</h2>
 
               {/* Форма персональных данных */}
-              <form className="space-y-4">
-                <div className="grid grid-cols-2 gap-4">
+              <form className="space-y-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <label className="block text-sm mb-1">First Name</label>
+                    <label className="block text-sm mb-2">First Name</label>
                     <input
                       type="text"
-                      className="w-full px-3 py-2 border border-black rounded focus:outline-none"
+                      className="w-full px-4 py-3 border border-black rounded-[6px] focus:outline-none"
+                      placeholder="Enter your first name"
                     />
                   </div>
                   <div>
-                    <label className="block text-sm mb-1">Last Name</label>
+                    <label className="block text-sm mb-2">Last Name</label>
                     <input
                       type="text"
-                      className="w-full px-3 py-2 border border-black rounded focus:outline-none"
+                      className="w-full px-4 py-3 border border-black rounded-[6px] focus:outline-none"
+                      placeholder="Enter your last name"
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label className="block text-sm mb-1">Email</label>
+                  <label className="block text-sm mb-2">Email</label>
                   <input
                     type="email"
-                    className="w-full px-3 py-2 border border-black rounded focus:outline-none"
+                    className="w-full px-4 py-3 border border-black rounded-[6px] focus:outline-none"
+                    placeholder="Enter your email"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-sm mb-1">Phone</label>
+                  <label className="block text-sm mb-2">Phone</label>
                   <input
                     type="tel"
-                    className="w-full px-3 py-2 border border-black rounded focus:outline-none"
+                    className="w-full px-4 py-3 border border-black rounded-[6px] focus:outline-none"
+                    placeholder="Enter your phone number"
                   />
                 </div>
 
                 <button
-                  type="button"
-                  className="w-full bg-black text-white py-2 rounded hover:bg-gray-800 transition-colors"
+                  type="submit"
+                  className="w-full py-3 border border-black rounded-[6px]"
                 >
                   Save Changes
                 </button>

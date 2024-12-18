@@ -26,7 +26,6 @@
     "mobAccessories": "EXTRA",
     "information": "About"
   },
-  
   "auth": {
     "logIn": "LOG IN",
     "email": "Email",
@@ -35,6 +34,23 @@
     "signIn": "Sign In",
     "newCustomers": "NEW CUSTOMERS",
     "newCustomersDescription": "Sign up for early Sale access plus tailored new arrivals, trends and promotions. To opt out, click unsubscribe in our emails.",
-    "register": "Register"
+    "register": "Register",
+    "redirecting": "Redirecting..."
+  },
+  "profile": {
+    "accountSettings": "Account Settings",
+    "personalInfo": "Personal Information",
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "email": "Email",
+    "phone": "Phone"
+  },
+  "orders": {
+    "myOrders": "My Orders",
+    "noOrders": "You have no orders yet"
+  },
+  "additional": {
+    "additionalInfo": "Additional Info",
+    "termsAgreement": "terms of the agreement"
   }
 }
