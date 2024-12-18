@@ -40,7 +40,7 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
     <html lang={localeFromCookie} className={fontClassName}>
       <body className="dark:bg-[url('/assets/background-dark.png')] bg-no-repeat bg-cover"
       >
-        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <Providers initialLocale={localeFromCookie} initialMessages={messages}>
             <FontProvider
               fonts={{
