@@ -8,7 +8,7 @@ const store = configureStore({
   reducer: {
     language: languageReducer,
     cart: cartReducer,
-    currency: currencyReducer,
+    currency: currencyReducer
   },
 });
 
