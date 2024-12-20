@@ -9,7 +9,8 @@ import { RootState } from '../../store';
 const currencies = [
   { code: 'USD', label: 'USD' },
   { code: 'EUR', label: 'EUR' },
-  { code: 'RUB', label: 'RUB' },
+  { code: 'CZK', label: 'CZK' },
+  { code: 'HUF', label: 'HUF' },
 ];
 
 const CurrencyMenu: React.FC = () => {

@@ -13,6 +13,7 @@ import Footer from "./components/UI/Footer";
 import MobileNavigationMenu from "./components/MobileUI/MobileNavigationMenu";
 import BottomNav from "./components/MobileUI/BottomNav";
 import { dm_sans, pt_sans } from "./utils/fontConfig";
+import CurrencyProvider from "@/providers/CurrencyProvider";
 
 
 export const metadata: Metadata = {
@@ -41,6 +42,7 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
       <body className="dark:bg-[url('/assets/background-dark.png')] bg-no-repeat bg-cover"
       >
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          <CurrencyProvider>
           <Providers initialLocale={localeFromCookie} initialMessages={messages}>
             <FontProvider
               fonts={{
@@ -56,6 +58,7 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
               <Footer />
             </FontProvider>
           </Providers>
+          </CurrencyProvider>
         </ThemeProvider>
       </body>
     </html>
